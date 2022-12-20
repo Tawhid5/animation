@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+   padding: 0;
+    
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(214, 156, 31);
+}
+.go{
+    position: relative;
+   height: 450px;
+   width: 700px;
+   border-radius: 20px;
+   background-color: rgb(255, 255, 255);
+   box-shadow: -10px -10px 15px rgb(32, 27, 165), 
+   10px 10px 20px rgb(218, 37, 37); 
+   border: 0px solid black;
+align-items: center;
+justify-content: center;
+display: flex;
+overflow: hidden;
+}
+.sun{
+    width: 80px;
+    height: 80px;
+    background: yellow;
+    border-radius: 50%;
+    position: absolute;
+   box-shadow: 0 0 40px rgb(231, 231, 10),0 0 40px yellow,0 0 40px yellow,0 0 40px yellow,0 0 40px yellow;
+  top: 30px;
+  right: 50px;}
+
+.road{  width: 100%;
+    height: 80px;
+    background: rgb(0, 0, 0);
+    position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.road::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background-color: green;
+}
+.road::after{
+    content: "";
+    position: absolute;
+    transform: translateY(-50%);
+    top: 60%;
+    width: 100%;
+    height: 2px;
+ background: repeating-linear-gradient(90deg,transparent 0, transparent 50%,#fff 50%,#fff 100%);
+ background-size: 20px;
+animation: road 0.2s linear infinite;
+}
+
+@keyframes road
+{ 0%
+    { background-position-x: 0;
+    
+    }
+
+    100%
+    { background-position-x: -20px;
+    
+    }
+
+}
+.fa-van-shuttle{
+    position: absolute;
+    bottom: 25px;
+    left: 40px;
+    z-index: 10;
+    color: #fff;
+  font-size: 2.5cm;
+  -webkit-text-stroke: 2px black;
+  animation: van 0.2s linear infinite;
+}
+@keyframes van{
+    0%,100%
+    {
+        transform: translateY(0);
+    }
+   50%
+    {
+        transform: translateY(2px);
+    }
+}
+.fa-cloud{
+    position: absolute;
+    top: calc(15px *var(--i));
+    left: calc(15px *var(--i));
+    color: #fff;
+  font-size: 1.5cm;
+  -webkit-text-stroke: 3px black;
+  z-index: 1;
+  animation: cloud 3.5s linear infinite;
+  animation-delay: calc(-1s *var(--i));
+}
+@keyframes cloud {
+    0%
+    {
+        transform: translateX(500px);
+    }
+    100%
+    {
+        transform: translateX(-500px);
+    }
+}
+.fa-tree{
+    position: absolute;
+   bottom: 76px;
+    color: rgb(42, 107, 4);
+  font-size: 1.5cm;
+  z-index: 1;
+  animation: cloud 5s linear infinite;
+  animation-delay: calc(-1s *var(--i));
+}
+.fa-mountain-sun{
+    position: absolute;
+   bottom: 79px;
+    color: rgb(138, 78, 46);
+  font-size: 3.5cm;
+  z-index: 1;
+  animation: cloud 15s linear infinite;
+  animation-delay: calc(-3s *var(--i));}
+
+@keyframes cloud {
+    0%
+    {
+        transform: translateX(500px);
+    }
+    100%
+    {
+        transform: translateX(-500px);
+    }
+}
